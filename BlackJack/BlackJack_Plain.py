@@ -21,6 +21,9 @@ def split(player_cards, dealer_cards):
 
     # HAND 1
     move = input("Options for hand 1:\n h = hit\n s = stay\n x = split\n")
+    while move not in ['h','s','x']:
+        print('Input not recongnized\n')
+        move = input("Options for hand 1:\n h = hit\n s = stay\n x = split\n")
     bustchecker = True  # This is solely for a player bust on a split hand
 
     if move == 'd':
@@ -72,6 +75,9 @@ def split(player_cards, dealer_cards):
 
         if bustchecker is True:
             move = input("Options:\n h = hit\n s = stay\n")
+            while move not in ['h','s','x']:
+                print('Input not recongnized\n')
+                move = input("Options:\n h = hit\n s = stay\n")
 
     if move == 's':
 
@@ -91,6 +97,9 @@ def split(player_cards, dealer_cards):
 
         # HAND 2
         move = input("Options for hand 2:\n h = hit\n s = stay\n x = split\n")
+        while move not in ['h','s','x']:
+            print('Input not recongnized\n')
+            move = input("Options for hand 2:\n h = hit\n s = stay\n x = split\n")
         bustchecker2 = True
 
         if move == 'd':
@@ -327,6 +336,9 @@ def blackjack():
             continue
 
         move = input("Options:\n h = hit\n s = stay\n x = split\n d = double down\n\n")
+        while move not in ['h','s','x']:
+            print('Input not recongnized\n')
+            move = input("Options:\n h = hit\n s = stay\n x = split\n d = double down\n\n")
 
         # If player splits
         if move == 'x' and player_cards[0] != player_cards[1]:
