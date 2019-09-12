@@ -336,7 +336,7 @@ def blackjack():
             continue
 
         move = input("Options:\n h = hit\n s = stay\n x = split\n d = double down\n\n")
-        while move not in ['h','s','x']:
+        while move not in ['h','s','x','d']:
             print('Input not recongnized\n')
             move = input("Options:\n h = hit\n s = stay\n x = split\n d = double down\n\n")
 
