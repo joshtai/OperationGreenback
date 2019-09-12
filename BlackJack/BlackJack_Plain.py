@@ -1,7 +1,7 @@
 # BlackJack Statistics Program
 # BlackJack Rules: 2 decks. 70% Penetration. Dealer hits on soft 17s
 # bugs: splits inside of splits,
-
+import time
 # For a 2-Deck shoe:
 one_suit_cards = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 shoe = one_suit_cards * 8
@@ -39,11 +39,14 @@ def split(player_cards, dealer_cards):
 
             if sum(player_cards) > 21:
                 print('Player Bust. You lose')
+                time.sleep(2)
 
         player_total = sum(player_cards)
         print(player_cards, "Total:", player_total)
         if player_total > 21:
             print('Player Bust. You Lose')
+            time.sleep(2)
+
             print()
 
         move = 's'
@@ -84,6 +87,7 @@ def split(player_cards, dealer_cards):
 
         if sum(split1) > 21:
             print('Player Bust. You lose')
+            time.sleep(2)
 
         # HAND 2
         move = input("Options for hand 2:\n h = hit\n s = stay\n x = split\n")
@@ -105,11 +109,13 @@ def split(player_cards, dealer_cards):
 
                 if sum(player_cards) > 21:
                     print('Player Bust. You lose')
+                    time.sleep(2)
 
             player_total = sum(player_cards)
             print(player_cards, "Total:", player_total)
             if player_total > 21:
                 print('Player Bust. You Lose')
+                time.sleep(2)
                 print()
 
             move = 's'
@@ -129,11 +135,13 @@ def split(player_cards, dealer_cards):
 
                 if sum(split2) > 21:
                     print('Player Bust. You lose')
+                    time.sleep(2)
 
             player_total2 = sum(split2)
             print(split2, "Total:", player_total2)
             if player_total2 > 21:
                 print('Player Bust. You Lose')
+                time.sleep(2)
                 print()
                 bustchecker2 = False
                 move = 's'
@@ -154,6 +162,7 @@ def split(player_cards, dealer_cards):
 
             if sum(split2) > 21:
                 print('Player Bust. You lose')
+                time.sleep(2)
                 print()
 
             player_total2 = sum(player_cards)
@@ -167,29 +176,40 @@ def split(player_cards, dealer_cards):
 
         if dealer_total > 21 and player_total <= 21 and player_total2 <= 21:
             print('Dealer Bust. Player wins all hands')
+            time.sleep(2)
         if dealer_total > 21 and player_total <= 21 and player_total2 > 21:
             print('Dealer Bust. Player wins Hand 1.')
+            time.sleep(2)
         if dealer_total > 21 and player_total > 21 and player_total2 <= 21:
             print('Dealer Bust. Player wins Hand 2.')
+            time.sleep(2)
 
         if player_total > 21:
             print("Player Bust on Hand 1")
+            time.sleep(2)
         if player_total2 > 21:
             print("Player Bust on Hand 2")
+            time.sleep(2)
 
         if 21 >= dealer_total > player_total:
             print('Dealer Wins Hand 1')
+            time.sleep(2)
         if 21 > dealer_total < player_total <= 21:
             print('Player Wins Hand 1')
+            time.sleep(2)
         if 21 >= dealer_total == player_total:
             print("Push on Hand 1")
+            time.sleep(2)
 
         if 21 >= dealer_total > player_total2:
             print('Dealer Wins Hand 2')
+            time.sleep(2)
         if 21 > dealer_total < player_total2 <= 21:
             print('Player Wins Hand 2')
+            time.sleep(2)
         if 21 >= dealer_total == player_total2:
             print("Push on Hand 2")
+            time.sleep(2)
 
 
 # Function for dealer strategy
@@ -227,6 +247,7 @@ def dealer_strategy(dealer_cards):
                 dealer_cards.append(new_card)
                 dealer_total = sum(dealer_cards)
                 print("Dealer Hand:", dealer_cards, "Total:", dealer_total)
+                time.sleep(2)
 
             if new_card == 'A' and dealer_total in [7, 8, 9, 10]:
                 check = False
@@ -234,6 +255,7 @@ def dealer_strategy(dealer_cards):
                 dealer_cards.append(new_card)
                 dealer_total = sum(dealer_cards)
                 print("Dealer Hand:", dealer_cards, "Total:", dealer_total)
+                time.sleep(2)
 
             if new_card == 'A' and dealer_total in [4, 5, 6]:
                 check = False
@@ -241,6 +263,7 @@ def dealer_strategy(dealer_cards):
                 dealer_cards.append(new_card)
                 dealer_total = sum(dealer_cards)
                 print("Dealer Hand:", dealer_cards, "Total:", dealer_total)
+                time.sleep(2)
 
             if check is True:
                 dealer_cards.append(new_card)
@@ -254,6 +277,7 @@ def dealer_strategy(dealer_cards):
 
                 dealer_total = sum(dealer_cards)
                 print("Dealer Hand:", dealer_cards, "Total:", dealer_total)
+                time.sleep(2)
 
             soft_17_check = False
             if dealer_cards.count(11) > 0:
@@ -265,6 +289,7 @@ def dealer_strategy(dealer_cards):
     dealer_total = sum(dealer_cards)
     if dealer_total > 21:
         print("Dealer Bust. Player wins")
+        time.sleep(2)
 
     return ''
 
@@ -331,11 +356,13 @@ def blackjack():
 
                     if sum(player_cards) > 21:
                         print('Player Bust. You lose')
+                        time.sleep(2)
 
                 player_total = sum(player_cards)
                 print(player_cards, "Total:", player_total)
                 if player_total > 21:
                     print('Player Bust. You Lose')
+                    time.sleep(2)
                     print()
                     break
 
@@ -357,6 +384,7 @@ def blackjack():
 
                     if sum(player_cards) > 21:
                         print('Player Bust. You lose')
+                        time.sleep(2)
 
                 # To calculate player score
                 player_total = sum(player_cards)
@@ -382,6 +410,7 @@ def blackjack():
 
                 if sum(player_cards) > 21:
                     print('Player Bust. You lose')
+                    time.sleep(2)
 
                 player_total = sum(player_cards)
                 print("The Dealer Hand is:", dealer_cards)
@@ -391,10 +420,13 @@ def blackjack():
                 dealer_total = sum(dealer_cards)
                 if 21 >= dealer_total > player_total:
                     print('Dealer Wins')
+                    time.sleep(2)
                 if 21 > dealer_total < player_total <= 21:
                     print('Player Wins')
+                    time.sleep(2)
                 if 21 >= dealer_total == player_total:
                     print("Push")
+                    time.sleep(2)
 
     return ''
 
@@ -405,12 +437,3 @@ if __name__ == '__main__':
     while send == 'y':
         blackjack()
         send = input("No more cards. Would you like to reshuffle and play another game of BlackJack? (y/n)\n")
-
-
-
-
-
-
-
-
-
